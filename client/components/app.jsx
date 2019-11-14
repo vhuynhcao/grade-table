@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './header.jsx';
-import Grade from './grade.jsx';
+import GradeTable from './gradetable.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -8,16 +8,13 @@ class App extends React.Component {
     this.state = {
       grades: []
     };
+    this.componentDidMount();
   }
 
   componentDidMount() {
-    this.componentDidUpdate();
-  }
-
-  componentDidUpdate() {
     fetch('/api/grades')
       .then(response => response.json())
-      .then(grades => this.setState({ grades }))
+      .then(data => this.setState({ grades: data }))
       .catch(error => console.error('Fetch Error: ', error));
   }
 
@@ -25,7 +22,7 @@ class App extends React.Component {
     return (
       <div>
         <Header text="Student Grade Table"/>
-        <Grade/>
+        <GradeTable grades={this.state.grades}/>
       </div>
     );
   }

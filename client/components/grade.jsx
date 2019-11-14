@@ -2,13 +2,11 @@ import React from 'react';
 
 function Grade(props) {
   return (
-    <table className="table">
-      <thead>
-        <th scope="col">Student Name</th>
-        <th scope="col">Course</th>
-        <th scope="col">Grade</th>
-      </thead>
-    </table>
+    <tr>
+      <th scope="row">{props.grades.name}</th>
+      <td>{props.grades.course}</td>
+      <td>{props.grades.grade}</td>
+    </tr>
   );
 }
 
