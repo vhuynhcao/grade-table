@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './header.jsx';
+import Grade from './grade.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,12 +19,14 @@ class App extends React.Component {
       .then(response => response.json())
       .then(grades => this.setState({ grades }))
       .catch(error => console.error('Fetch Error: ', error));
-
   }
 
   render() {
     return (
-      <Header text="Student Grade Table"/>
+      <div>
+        <Header text="Student Grade Table"/>
+        <Grade/>
+      </div>
     );
   }
 }
