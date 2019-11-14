@@ -9,6 +9,10 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+
+  }
+
   render() {
     return (
       <Header text="Student Grade Table"/>
