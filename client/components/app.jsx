@@ -12,6 +12,7 @@ class App extends React.Component {
     this.componentDidMount();
     this.getAverageGrade = this.getAverageGrade.bind(this);
     this.addNewStudent = this.addNewStudent.bind(this);
+    this.deleteStudent = this.deleteStudent.bind(this);
   }
 
   componentDidMount() {
@@ -45,12 +46,24 @@ class App extends React.Component {
       });
   }
 
+  deleteStudent(id) {
+    let remove = {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' }
+    };
+    fetch(`/api/grades/${id}`, remove);
+    // .then(response => response.json())
+    // .then(this.setState({
+    //   grades:
+    // }));
+  }
+
   render() {
     return (
       <div className="container-fluid">
         <Header text="Student Grade Table" average={this.getAverageGrade()}/>
         <div className="row">
-          <GradeTable grades={this.state.grades}/>
+          <GradeTable grades={this.state.grades} removeStudent={this.deleteStudent}/>
           <GradeForm newStud={this.addNewStudent}/>
         </div>
       </div>

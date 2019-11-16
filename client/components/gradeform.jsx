@@ -55,6 +55,7 @@ class GradeForm extends React.Component {
             placeholder="Student Name"
             type="text"
             name="name"
+            value={this.state.name}
             onChange={this.handleChange}
             aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-default"
@@ -70,6 +71,7 @@ class GradeForm extends React.Component {
             className="form-control"
             placeholder="Course"
             type="text"
+            value={this.state.course}
             name="course"
             onChange={this.handleChange}
             aria-label="Sizing example input"
@@ -87,16 +89,17 @@ class GradeForm extends React.Component {
             placeholder="Grade"
             type="number"
             name="grade"
+            value={this.state.grade}
             onChange={this.handleChange}
             aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-default"
           />
         </div>
-        <button className="ml-3 btn btn-success" type="submit">
+        <button className="btn btn-success" type="submit">
           Submit
         </button>
         <button
-          className="ml-3 btn btn-danger"
+          className="ml-3 btn btn-warning"
           type="reset"
           onClick={this.handleCancel}
         >

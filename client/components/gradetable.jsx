@@ -3,7 +3,7 @@ import Grade from './grade.jsx';
 
 function GradeTable(props) {
   var studentTable = props.grades.map(data => {
-    return <Grade key={data.id} grades={data}/>;
+    return <Grade key={data.id} grades={data} removeStudent={data}/>;
   });
 
   return (
@@ -13,6 +13,7 @@ function GradeTable(props) {
           <th>Student Name</th>
           <th>Course</th>
           <th>Grade</th>
+          <th>Operations</th>
         </tr>
       </thead>
       <tbody>

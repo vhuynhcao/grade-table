@@ -41,6 +41,18 @@
       "course": "Math",
       "grade": "50",
       "id": 7
+    },
+    {
+      "name": "Vicky",
+      "course": "g",
+      "grade": "5",
+      "id": 8
+    },
+    {
+      "name": "Vicky",
+      "course": "g",
+      "grade": "5",
+      "id": 9
     }
   ]
 }
