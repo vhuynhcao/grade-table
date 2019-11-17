@@ -26,7 +26,7 @@ class App extends React.Component {
     var avgGrade = 0;
     var students = this.state.grades.length;
     for (var studentIndex = 0; studentIndex < students; studentIndex++) {
-      avgGrade += this.state.grades[studentIndex].grade;
+      avgGrade += parseInt(this.state.grades[studentIndex].grade);
     }
     const average = Math.round(avgGrade / studentIndex);
     return average;
@@ -43,7 +43,8 @@ class App extends React.Component {
       .then(addNewList => {
         const allList = this.state.grades.concat(addNewList);
         this.setState({ grades: allList });
-      });
+      })
+      .catch(error => console.error('Delete Error: ', error));
   }
 
   deleteStudent(id) {
@@ -51,11 +52,15 @@ class App extends React.Component {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }
     };
-    fetch(`/api/grades/${id}`, remove);
-    // .then(response => response.json())
-    // .then(this.setState({
-    //   grades:
-    // }));
+    const mapGrade = this.state.grades.map(grade => grade);
+    const removeGrade = mapGrade.filter(grade => grade.id !== id);
+    fetch(`/api/grades/${id}`, remove)
+      .then(response => response.json())
+      .then(() => {
+        this.setState({
+          grades: removeGrade });
+      })
+      .catch(error => console.error('Failed: ', error));
   }
 
   render() {
