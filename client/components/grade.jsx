@@ -13,7 +13,7 @@ class Grade extends React.Component {
         <td>{this.props.grades.course}</td>
         <td>{this.props.grades.grade}</td>
         <td>
-          <button type="button" className="btn btn-danger" onClick={() => this.props.callBack.removeStudent(this.props.id)}>Delete</button>
+          <button type="button" className="btn btn-danger" onClick={() => this.props.removeStudent(this.props.id)}>Delete</button>
         </td>
       </tr>
     );

@@ -9,7 +9,7 @@ class GradeTable extends React.Component {
 
   render() {
     var studentTable = this.props.grades.map(data => {
-      return <Grade key={data.id} grades={data} callBack={this.props} removeStudent={data}/>;
+      return <Grade key={data.id} grades={data} id={data.id} name={data.name} course={data.course} removeStudent={this.props.removeStudent}/>;
     });
 
     return (
