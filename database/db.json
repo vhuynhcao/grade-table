@@ -1,46 +1,22 @@
 {
   "grades": [
     {
-      "name": "Dan Paschal",
-      "course": "Web Development",
-      "grade": 100,
-      "id": 1
-    },
-    {
-      "name": "Scott Bowler",
-      "course": "Web Development",
-      "grade": 100,
-      "id": 2
-    },
-    {
-      "name": "Tim Davis",
-      "course": "Web Development",
-      "grade": 50,
-      "id": 3
-    },
-    {
-      "name": "45",
-      "course": "",
-      "grade": "45",
-      "id": 4
-    },
-    {
-      "name": "dd",
-      "course": "",
-      "grade": "dd",
-      "id": 5
-    },
-    {
-      "name": "f",
-      "course": "f",
-      "grade": "5",
-      "id": 6
-    },
-    {
       "name": "Vicky",
       "course": "Math",
       "grade": "50",
-      "id": 7
+      "id": 1
+    },
+    {
+      "name": "Vicky",
+      "course": "Management",
+      "grade": "80",
+      "id": 2
+    },
+    {
+      "name": "Vicky",
+      "course": "Photography",
+      "grade": "100",
+      "id": 3
     }
   ]
 }

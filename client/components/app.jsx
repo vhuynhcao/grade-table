@@ -12,6 +12,7 @@ class App extends React.Component {
     this.componentDidMount();
     this.getAverageGrade = this.getAverageGrade.bind(this);
     this.addNewStudent = this.addNewStudent.bind(this);
+    this.deleteStudent = this.deleteStudent.bind(this);
   }
 
   componentDidMount() {
@@ -22,12 +23,13 @@ class App extends React.Component {
   }
 
   getAverageGrade() {
-    var avgGrade = 0;
-    var students = this.state.grades.length;
-    for (var studentIndex = 0; studentIndex < students; studentIndex++) {
-      avgGrade += this.state.grades[studentIndex].grade;
+    let avgGrade = 0;
+    let students = this.state.grades.length;
+    for (let studentIndex = 0; studentIndex < students; studentIndex++) {
+      avgGrade += parseInt(this.state.grades[studentIndex].grade);
     }
-    const average = Math.round(avgGrade / studentIndex);
+    const averageGrade = Math.round(avgGrade / students);
+    let average = isNaN(averageGrade) ? 0 : averageGrade;
     return average;
   }
 
@@ -42,7 +44,24 @@ class App extends React.Component {
       .then(addNewList => {
         const allList = this.state.grades.concat(addNewList);
         this.setState({ grades: allList });
-      });
+      })
+      .catch(error => console.error('Delete Error: ', error));
+  }
+
+  deleteStudent(id) {
+    let remove = {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' }
+    };
+    const mapGrade = this.state.grades.map(grade => grade);
+    const removeGrade = mapGrade.filter(grade => grade.id !== id);
+    fetch(`/api/grades/${id}`, remove)
+      .then(response => response.json())
+      .then(() => {
+        this.setState({
+          grades: removeGrade });
+      })
+      .catch(error => console.error('Failed: ', error));
   }
 
   render() {
@@ -50,7 +69,7 @@ class App extends React.Component {
       <div className="container-fluid">
         <Header text="Student Grade Table" average={this.getAverageGrade()}/>
         <div className="row">
-          <GradeTable grades={this.state.grades}/>
+          <GradeTable grades={this.state.grades} removeStudent={this.deleteStudent}/>
           <GradeForm newStud={this.addNewStudent}/>
         </div>
       </div>
