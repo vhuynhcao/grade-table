@@ -23,12 +23,13 @@ class App extends React.Component {
   }
 
   getAverageGrade() {
-    var avgGrade = 0;
-    var students = this.state.grades.length;
-    for (var studentIndex = 0; studentIndex < students; studentIndex++) {
+    let avgGrade = 0;
+    let students = this.state.grades.length;
+    for (let studentIndex = 0; studentIndex < students; studentIndex++) {
       avgGrade += parseInt(this.state.grades[studentIndex].grade);
     }
-    const average = Math.round(avgGrade / studentIndex);
+    const averageGrade = Math.round(avgGrade / students);
+    let average = isNaN(averageGrade) ? 0 : averageGrade;
     return average;
   }
 
