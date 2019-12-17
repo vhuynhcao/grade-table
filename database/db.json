@@ -1,22 +1,3 @@
 {
-  "grades": [
-    {
-      "name": "Vicky",
-      "course": "Math",
-      "grade": "50",
-      "id": 1
-    },
-    {
-      "name": "Vicky",
-      "course": "Management",
-      "grade": "80",
-      "id": 2
-    },
-    {
-      "name": "Vicky",
-      "course": "Photography",
-      "grade": "100",
-      "id": 3
-    }
-  ]
+  "grades": []
 }
